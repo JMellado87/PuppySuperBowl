@@ -2,7 +2,6 @@
 
 let puppyPlayerList = document.querySelector("#container")
 const singlePuppyDiv = document.querySelector("#singlePuppyDiv")
-let puppies = []
 
 
 async function getAllPuppyTeams() {
@@ -21,20 +20,18 @@ async function getAllPuppyTeams() {
     });
 
 function render () {
-    const allPlayerList = puppies.map((puppy) => {
-        return  `
-                    <div class="basicHover" id="basicProfile">
-                    
-                    
-                    <img class="imgAllProfile"  src=${puppy.imageUrl} />
-                    <h4> <a href=#${puppy.name} > ${puppy.name} </a> </h4>
-                    
-                    </div>`;
-            
+const allPlayerList = puppies.map((puppy) => {
+
+    return `<div class="basicHover" id="basicProfile">
+                <img  class="imgAllProfile"  src=${puppy.imageUrl} />
+                <h4> <a href=#${puppy.name}> ${puppy.name} </a> </h4>
+                </div>`
     })
 
+
 const puppyName = window.location.hash.slice(1)
-    const singlePuppy = puppies.find((puppy) => {
+    
+const singlePuppy = puppies.find((puppy) => {
         return puppy.name === puppyName;
 
     })
@@ -42,24 +39,24 @@ const puppyName = window.location.hash.slice(1)
 
     puppyPlayerList.innerHTML = singlePuppy ? "" : allPlayerList.join("")
 
- if(singlePuppy) {
+if(singlePuppy) {
     singlePuppyDiv.innerHTML= `
-    <div id="singlePuppyDiv">
+    <div>
     <div>
     <h1 >Selected Player</h1>
-    <h2>Player: ${singlePuppy.name}</h2>
-    <li>Position: ${singlePuppy.status}</li>
-    <li>Number: ${singlePuppy.id}</li>
-    <li>Breed: ${singlePuppy.breed}</li>
+    <h2 >Player: ${singlePuppy.name}</h2>
+    <li >Position: ${singlePuppy.status}</li>
+    <li  > # ${singlePuppy.id}</li>
+    <li  >Breed: ${singlePuppy.breed}</li>
     <br/>
-    <a class="back" href=# > Back to all Players </a> </div>
+    <a  class="backclick" href=# > Back to all Players </a> </div>
     </div>
     <div class="sglImgDiv" > <img class="imgSglProfile" src=${singlePuppy.imageUrl} /> </div>
     
     </div>`
 }else{
     singlePuppyDiv.innerHTML=""
-}
+} 
 }
 
 

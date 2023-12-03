@@ -1,12 +1,16 @@
 body {
-    background-image: url("./Photos/gradient-football-field-background_52683-65682.jpg");
+    background-image: url("./Photos/American_football_field_with_grass_Wall_Mural_Wallpaper_a_1400x.jpg");
     background-color: white;
-    background-size: cover;
+    background-size: auto;
     min-height: 100%;
 }
 
-h1 {
+.banner {
     text-align: center;
+    background-color: black;
+    color: goldenrod;
+    border-radius: 2rem 2rem 100rem 100rem;
+    padding: 5px;
 }
 
 #container {
@@ -14,6 +18,8 @@ h1 {
     flex-wrap: wrap;
     flex-direction: row; 
     gap: 5px;
+    justify-content: space-around;
+    
 }
 
 a {
@@ -28,21 +34,18 @@ a {
 #basicProfile {
     border: 1px solid black;
     padding: 0px;
-    margin: 0px;
+    margin: 5px;
     border-radius: 80rem 80rem 80rem 80rem;
-    justify-content: center;
     text-align: center;
     background-color: black;
     transition: 1s;
-   
-    
-    
 }
+
 .basicHover:hover {
     transition: all 1s;
     transform: scale(0.9);
 }
-.imgAllProfile {
+.imgAllProfile{
     position: relative;
     text-align: center;
     color: white;
@@ -56,21 +59,35 @@ a {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    border: 1px solid black;
+    border: 4px solid black;
     gap: 20px;
     background-color: black;
     color: goldenrod;
     padding: 5px;
     margin: 5px;
+    border-radius: 1rem 1rem 1rem 1rem;
 }
+
 .sglImgDiv{
-    border: 1px solid black;
-    background-color: black;
-    
+    background-color: none;
+    border-radius: 1rem 1rem 1rem 1rem
 }
 .imgSglProfile { 
     align-items: right;
     width: 200px;
     padding: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 10px;
     border-radius: 10rem 10rem 10rem 10rem;
 }
+
+.backclick:hover {
+    background-color: darkgreen;
+    padding: 2px;
+    margin: 2px;
+    border-radius: 1rem 1rem 1rem 1rem;
+    transform: scale(1.1);
+    transition: 1s;
+}
+
