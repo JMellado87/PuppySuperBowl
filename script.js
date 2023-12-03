@@ -1,27 +1,5 @@
 
 
-
-//let puppyTeamOne = document.querySelector("#puppyTeamOne")
-//let puppyTeamTwo = document.querySelector("#puppyTeamTwo")
-//let teamOne = []
-//let teamTwo = []
-
-///const puppyTeamOne = puppies.map(() => puppies.id <= 5561) /// but this is just for array... 
-//const puppyTeamTwo = puppies.map(() => puppies.id => 5562)
-
-//function assigningTeams ()  {
-//    if(puppies.id <= 5561 ) {   // in case there is anything added in the futer for scalabilty it is better not limit
-//        
-//        return teamOne
-//    } else {
-//        return teamTwo
-//    }
-//    }
-    
-//const array = ["The Destroyer","The Crusher","The BoneDigger"," The Puppetmaster","The Buttsniffer","The Joker","The Horrific","The Overlord","The Sheriff", "The Gladiator"]
-//const nickNameRand=array[Math.floor(Math.random()*array.lenght)];
-//console.log(nickNameRand)
-
 let puppyPlayerList = document.querySelector("#container")
 const singlePuppyDiv = document.querySelector("#singlePuppyDiv")
 let puppies = []
@@ -45,17 +23,15 @@ async function getAllPuppyTeams() {
 function render () {
     const allPlayerList = puppies.map((puppy) => {
         return  `
-                    <div id="basicProfile">
-                    <h3>Pupperony</h3>
-                    <img  src=${puppy.imageUrl} />
-                    <h4> <a href=#${puppy.name} >Player: ${puppy.name} </a> </h4>
+                    <div class="basicHover" id="basicProfile">
+                    
+                    
+                    <img class="imgAllProfile"  src=${puppy.imageUrl} />
+                    <h4> <a href=#${puppy.name} > ${puppy.name} </a> </h4>
+                    
                     </div>`;
             
     })
-
-
-
-
 
 const puppyName = window.location.hash.slice(1)
     const singlePuppy = puppies.find((puppy) => {
@@ -63,25 +39,28 @@ const puppyName = window.location.hash.slice(1)
 
     })
 
-puppyPlayerList.innerHTML =  allPlayerList.join("")
-    
-console.log(puppyName)
-    
+
+    puppyPlayerList.innerHTML = singlePuppy ? "" : allPlayerList.join("")
+
+ if(singlePuppy) {
     singlePuppyDiv.innerHTML= `
-    <h1>Selected Player</h1>
-    <h2>Name: ${singlePuppy.name}</h2>
+    <div id="singlePuppyDiv">
+    <div>
+    <h1 >Selected Player</h1>
+    <h2>Player: ${singlePuppy.name}</h2>
     <li>Position: ${singlePuppy.status}</li>
     <li>Number: ${singlePuppy.id}</li>
     <li>Breed: ${singlePuppy.breed}</li>
-    <div>
-    <img src=${singlePuppy.imageUrl} />
+    <br/>
+    <a class="back" href=# > Back to all Players </a> </div>
     </div>
-    `
-
-
-
+    <div class="sglImgDiv" > <img class="imgSglProfile" src=${singlePuppy.imageUrl} /> </div>
+    
+    </div>`
+}else{
+    singlePuppyDiv.innerHTML=""
 }
-
+}
 
 
 
